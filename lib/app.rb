@@ -13,7 +13,7 @@ class FlightSchool < Sinatra::Base
       airport_status = Radar.status_for(params[:code])
       erb :airport, locals: { status: airport_status }
     rescue Radar::NoSuchAirport
-      status 404
+      status 401
       erb :no_airport
     end
   end
